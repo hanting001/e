@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>商品详情</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta content="email=no" name="format-detection"/>
+    <meta content="yes" name="apple-touch-fullscreen"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="wap/m/css/common.css" />
+    <link type="text/css" rel="stylesheet" href="wap/m/css/test.css" />
+    <link type="text/css" rel="stylesheet" href="wap/m/css/integration.css" />
+    <style type="text/css">
+        .content{ background-color:#f5f5f5;overflow:hidden; position:relative;width: 100%; margin:0 auto;}
+        touchslider,.touchslider div,.touchslider a,.touchslider img{font-style: normal; vertical-align: top; padding:0px; margin:0px; border:0px;}
+        span{
+            font-size: 15px;
+            color: darkgrey;
+        }
+        .row{
+            background: white;
+        }
+        .the-fieldset {
+            border-style: dashed;
+            border-color: darkgrey;
+            border-radius: 5px;
+            margin: 15px;
+        }
+        fieldset{
+            border: 2px groove threedface;
+            padding: 20px;
+        }
+        .the-legend {
+            margin: auto;
+            color: darkgrey;
+            display: block;
+            width:inherit; /* Or auto */
+            padding:0 10px; /* To give a bit of padding on the left and right */
+            border-bottom:none;
+        }
+        .the-modal-dialog {
+            border-radius:20px;
+        }
+        .modal {
+          text-align: center;
+        }
+
+        @media screen and (min-width: 768px) { 
+          .modal:before {
+            display: inline-block;
+            vertical-align: middle;
+            content: " ";
+            height: 100%;
+          }
+        }
+        .modal-dialog {
+            margin-top: 10vh;
+            display: inline-block;
+            text-align: left;
+            vertical-align: middle;
+        }
+        @media (min-width: 768px){
+            .the-modal-body {
+                padding:5px;
+            }
+        }
+        @media (max-width: 768px){
+            .modal-xs {
+                width: 250px;
+            }
+            .the-modal-body-xs {
+                background-color:#FFC600;
+                background-size: 100% 80%;
+                border-radius:20px 20px 0 0;
+                padding:5px;
+            }
+            .the-modal-content-xs {
+                border-radius:20px;
+            }
+            .the-modal-footer-xs {
+                border-radius:20px;
+                
+            }
+        }
+        .modal-footer {
+            border-top: 1px none #e5e5e5;
+        }
+        .modal-body .row {
+            background-color:#FFC600;
+            margin:5px;
+        }
+        .modal-footer .row {
+            margin:5px;
+        }
+    </style>
+</head>
+<body style="background: #f5f5f5">
+<div id="container" class="container" style="overflow-x: hidden;">
+    <div class="row">
+        <div class="col-xs-12">
+            <img  src="wap/m/images/integral_detail_benner@3x.png" class="img-responsive">
+        </div>
+    </div>
+    <div class="row" style="padding:10px 20px 10px 20px;">
+        <div class="col-xs-6" style="padding:6px 15px 6px 13px;">
+            <img src="wap/m/images/integral_record_icon_money.png"><span style="color: red;font-size: 14px">&nbsp;&nbsp;339999</span>
+        </div>
+        <div class="col-xs-6 text-right">
+            <a type="button" data-toggle="modal" data-target="#myModal" class="btn btn-warning" style="width:50%;border-radius:20px;">兑换</a>
+        </div>
+    </div>
+    <div class="row" style="padding:10px 20px 10px 20px;margin-top:2px;">
+        <div style="padding: 15px">
+            <div style="margin-bottom: 5px">
+                <img src="wap/m/images/integral_sign_dot.png" style="height:10px;"> <span>商品简介</span>
+            </div>
+            <span style="color: darkgrey;font-size: 12px">兑换之日起到2015年2月3日</span>
+        </div>
+
+        <div style="padding: 15px">
+            <div style="margin-bottom: 5px">
+                <img src="wap/m/images/integral_sign_dot.png" style="height:10px;"> <span>使用范围</span>
+            </div>
+            <span style="color: darkgrey;font-size: 12px">全国</span>
+        </div>
+
+        <div style="padding: 15px">
+            <div style="margin-bottom: 5px">
+                <img src="wap/m/images/integral_sign_dot.png" style="height:10px;"> <span>使用有效期</span>
+            </div>
+            <span style="color: darkgrey;font-size: 12px">兑换之日起到2015年2月3日</span>
+        </div>
+        <div style="padding: 15px">
+            <div style="margin-bottom: 5px">
+                <img src="wap/m/images/integral_sign_dot.png" style="height:10px;"> <span>兑换流程</span>
+            </div>
+            <ol style="color: darkgrey;font-size: 12px;">
+                <li>用户点击兑换获得【兑换码】</li>
+                <li>在工作日拨打客服电话【40691956】客服人员将会为您处理</li>
+            </ol>
+        </div>
+        <div style="padding: 15px">
+            <div style="margin-bottom: 5px">
+                <img src="wap/m/images/integral_sign_dot.png" style="height:10px;"> <span>温馨提示</span>
+            </div>
+            <span style="color: darkgrey;font-size: 12px">每张订单只能使用一张兑换券</span>
+        </div>
+    </div>
+    <div class="row" style="padding:10px 20px 10px 20px;">
+        <form>
+            <fieldset class="the-fieldset">
+                <legend class="the-legend">重要说明</legend>
+                <span style="color:darkgrey;font-size: 12px;">商品兑换流程请仔细参照商品详情页的"兑换流程","温馨提示"与"使用有效期"除商品本身不能正常兑换外,商品一经兑换,概不退换积分(如: 商品过期,兑换流程操作失误)</span>
+            </fieldset>
+        </form>
+    </div>
+    <div class="row text-center" style="padding:10px 20px 10px 20px;">
+        <span style="color: darkgrey;font-size: 12px">活动由超级货主提供,与设备生产商公司无关</span>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-xs the-modal-dialog" role="document">
+        <img id="vanish" src="/wap/m/images/order_popup_button_close@2x.png" style="position:relative;width:40px;top:20px;left:-20px;z-index:100;">
+        <div class="modal-content the-modal-content-xs">
+            <div class="modal-body text-center the-modal-body the-modal-body-xs">
+                <div class="row">
+                    <img src="/wap/m/images/popup_pic_integral@2x.png" style="width:100px;"> </img>
+                </div>
+                <div class="row" style="padding:10px;">
+                    <span style="color:white;font-size: 15px;">兑换该商品将消耗积分339900<br>是否兑换？</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="row text-center" style="padding:10px;background:white;">
+                    <b style="color:#DD6608;font-size: 25px;">确认兑换</b>
+                </div>
+             </div>
+        </div>
+    </div>
+</div>
+<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script>
+    $(function () {
+        $("#vanish").click(function(event) {
+            $('#myModal').modal('hide');
+        });
+    });
+</script>
+</body>
+</html>

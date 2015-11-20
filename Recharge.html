@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>手机充值</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, minimum-scale=1,initial-scale=1, maximum-scale=1, user-scalable=1" id="viewport" name="viewport" />
+    <!--离线应用的另一个技巧-->
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <!--指定的iphone中safari顶端的状态条的样式-->
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <!--告诉设备忽略将页面中的数字识别为电话号码-->
+    <meta content="telephone=no" name="format-detection" />
+    <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="wap/m/css/common.css" />
+    <link type="text/css" rel="stylesheet" href="wap/m/css/test.css" />
+    <style type="text/css">
+        .content{ background-color:#f5f5f5;overflow:hidden; position:relative;width: 100%; margin:0 auto;}
+        touchslider,.touchslider div,.touchslider a,.touchslider img{font-style: normal; vertical-align: top; padding:0px; margin:0px; border:0px;}
+        span {
+            color:#909090;
+        }        
+    </style>
+</head>
+<div id="container" class="container" style="overflow-x: hidden;">
+    <div class="row">
+        <div class="test" style="background: white;">
+            <div style="padding:10px 0 10px 0;border-bottom:4px solid #FFFFFF;" id="charge1">
+                <div style="border-right: 1px solid #F0ECF0;width: 100%;padding:0;" >
+                    <div  style="padding: 10px;">
+                        <span style="padding-left: 10px" >充话费</span>
+                    </div>
+                </div>
+            </div>
+            <div style="padding:10px 0 10px 0;border-bottom:4px solid #FFFFFF;" id="charge2">
+                <div style="border-left: 1px solid #F0ECF0;width: 100%;padding:0;">
+                    <div style="padding: 10px">
+                        <span style="padding-left: 10px">充流量</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="background: white;margin:4vh 10vw 2vh 10vw;padding:10px;padding:10px 10px 10px 10px;">
+        <div class="col-xs-10" >
+            <input type="tel" class="form-control" style="padding:0;border:0 none;box-shadow:none;height:100%;font-size:18px;">
+        </div>
+        <div class="col-xs-2" style="border-left: 1px solid #F0ECF0;"  >
+            <img src="/wap/m/images/integral_icon_phonebook@2x.png" style="height:22px;">
+        </div>            
+    </div>
+
+    <div class="row text-center" style="padding:10px 20px 10px 20px;">
+        <div class="col-xs-4" id="p3" >
+            <span style="position:relative;vertical-align: middle;font-size:1.5em;">30</span><small>元</small>
+            <br/><span style="font-size:1em;color:#FCC61E;">积分3000</span>
+        </div>
+        <div class="col-xs-4" id="p5" >
+            <span style="position:relative;vertical-align: middle;font-size:1.5em;">50</span><small>元</small>
+            <br/><span style="font-size:1em;color:#FCC61E;">积分5000</span>
+        </div>
+        <div class="col-xs-4" id="p10" >
+            <span style="position:relative;vertical-align: middle;font-size:1.5em;">100</span><small>元</small>
+            <br/><span style="font-size:1em;color:#FCC61E;">积分10000</span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div style="padding: 5vh 20vw 0 20vw;text-align: center;">
+            <div style="margin:0 0 10px 0;">
+                <span style="color: chocolate">本次充值消耗积分<pp id="point"></pp></span>
+            </div>
+            <button type="button" class="btn btn-warning btn-lg btn-block" style="border-radius:25px;">立即充值</button>
+        </div>
+    </div>
+    <div class="row" style="padding:10px;">
+        <div style="position:absolute; margin-left: 20px;margin-bottom: 20px;bottom:0vh;" >
+          <span style="color: #b0b0b0;font-size: 15px">兑换流程</span></br>
+            <div style="margin-top: 5px;vertical-align: middle">
+            <img src="wap/m/images/integral_sign_dot.png" style="vertical-align:middle;"> <span style="color: #b0b0b0;font-size: 12px;margin-left: 5px">填写所需充值号码,选择充值面额,点击"立即充值</span></br>
+            </div>
+            <div style="margin-top: 10px">
+            <img src="wap/m/images/integral_sign_dot.png" style="vertical-align:middle;"> <span style="color: #b0b0b0;font-size: 12px;margin-left: 5px">2-3个工作日,话费将充入您所充值的手机账户</span></br>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="/wap/m/js/jquery.uriAnchor.min.js"></script>
+<script>
+    $(function () {
+        var anchorMap = $.uriAnchor.makeAnchorMap();
+        var state = {
+            type: 1,
+            p:0
+        };
+        if (anchorMap.type) {
+           state.type = anchorMap.type;
+        }
+        var showType = function() {
+            if (state.type == 1) {
+                $('#charge1').css({
+                    'border-bottom': '4px solid #FFA701'
+                });
+                $('#charge1 span').css({
+                    'color': '#FFA701'
+                });
+                $('#charge2').css({
+                    'border-bottom': '4px solid #FFFFFF'
+                });
+                $('#charge2 span').css({
+                    'color': '#909090'
+                });
+            } else {
+                $('#charge2').css({
+                    'border-bottom': '4px solid #FFA701'
+                });
+                $('#charge2 span').css({
+                    'color': '#FFA701'
+                });
+                $('#charge1').css({
+                    'border-bottom': '4px solid #FFFFFF'
+                });
+                $('#charge1 span').css({
+                    'color': '#909090'
+                });
+            }
+            showP();
+        };
+        var showP = function() {          
+            if (state.p == 3000) {
+                $('#point').text(state.p);
+                $('#p3').css({
+                    'background': 'url(wap/m/images/integral_button_recharge_click@2x.png) no-repeat center',
+                    'background-position': 'center',
+                    'background-size': '28vw',
+                    'height': '28vw',
+                    'padding': '7vw 0 0 0',
+                    'vertical-align': 'middle'
+                });
+                $('#p3 span:first').css({
+                    color: '#FFFFFF'
+                });
+                $('#p5, #p10').css({
+                    'background': 'url(wap/m/images/integral_button_recharge_normal@2x.png) no-repeat center',
+                    'background-position': 'center',
+                    'background-size': '28vw',
+                    'height': '28vw',
+                    'padding': '7vw 0 0 0',
+                    'vertical-align': 'middle'                    
+                });
+                $('#p5 span:first,#p10 span:first').css({
+                    color: '#909090'
+                });                
+            } else if (state.p == 5000) {
+                $('#point').text(state.p);
+                $('#p5').css({
+                    'background': 'url(wap/m/images/integral_button_recharge_click@2x.png) no-repeat center',
+                    'background-position': 'center',
+                    'background-size': '28vw',
+                    'height': '28vw',
+                    'padding': '7vw 0 0 0',
+                    'vertical-align': 'middle'
+                });
+                $('#p5 span:first').css({
+                    color: '#FFFFFF'
+                });
+                $('#p3, #p10').css({
+                    'background': 'url(wap/m/images/integral_button_recharge_normal@2x.png) no-repeat center',
+                    'background-position': 'center',
+                    'background-size': '28vw',
+                    'height': '28vw',
+                    'padding': '7vw 0 0 0',
+                    'vertical-align': 'middle'
+                });
+                $('#p3 span:first,#p10 span:first').css({
+                    color: '#909090'
+                });                
+            } else if (state.p == 10000) {
+                $('#point').text(state.p);
+                $('#p10').css({
+                    'background': 'url(wap/m/images/integral_button_recharge_click@2x.png) no-repeat center',
+                    'background-position': 'center',
+                    'background-size': '28vw',
+                    'height': '28vw',
+                    'padding': '7vw 0 0 0',
+                    'vertical-align': 'middle'
+                });
+                $('#p10 span:first').css({
+                    color: '#FFFFFF'
+                });
+                $('#p3, #p5').css({
+                    'background': 'url(wap/m/images/integral_button_recharge_normal@2x.png) no-repeat center',
+                    'background-position': 'center',
+                    'background-size': '28vw',
+                    'height': '28vw',
+                    'padding': '7vw 0 0 0',
+                    'vertical-align': 'middle'
+                });
+                $('#p3 span:first,#p5 span:first').css({
+                    color: '#909090'
+                });                 
+            } else {
+                $('#point').text('');
+                $('#p3, #p5, #p10').css({
+                    'background': 'url(wap/m/images/integral_button_recharge_normal@2x.png) no-repeat center',
+                    'background-position': 'center',
+                    'background-size': '28vw',
+                    'height': '28vw',
+                    'padding': '7vw 0 0 0',
+                    'vertical-align': 'middle'
+                });  
+                $('#p3 span:first,#p5 span:first, #p10 span:first').css({
+                    color: '#909090'
+                });                  
+            }
+        }
+        showType();
+        showP();
+        $('#charge1').click(function(event) {
+            if (state.type != 1) {
+                state.type=1;
+                state.p=0;
+                showType();                
+            }
+        });
+        $('#charge2').click(function(event) {
+            if (state.type != 2) {
+                state.type=2;
+                state.p=0;
+                showType();
+            }
+        });   
+        $('#p3').click(function(event) {
+            state.p=3000;
+            showP();
+        }); 
+        $('#p5').click(function(event) {
+            state.p=5000;
+            showP();
+        });
+        $('#p10').click(function(event) {
+            state.p=10000;
+            showP();
+        });             
+    });
+</script>
+</body>
+</html>

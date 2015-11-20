@@ -1,0 +1,31 @@
+@charset "utf-8";
+/* CSS样式初始化 reset */
+html,body,div,ul,li,a,span,input,table,img,tbody,tr,td,button,p,i{ margin:0; padding:0;-webkit-appearance: none; font-family:"微软雅黑"}
+body {
+	background-color:#F5F5F5;
+    font-family: "Helvetica Neue", Helvetica, STheiti, "Microsoft YaHei", "微软雅黑", FangSong, "仿宋", Arial, Tahoma, sans-serif, serif;
+}
+
+h1,.h1,h2,.h2,h3,.h3,h4,.h4,.lead {
+    font-family: "Helvetica Neue", Helvetica, STheiti, "Microsoft YaHei", "微软雅黑", FangSong, "仿宋", Arial, Tahoma, sans-serif, serif;
+}
+/* 初始化标签在所有浏览器中的margin、padding值 */
+img {border:0 none;vertical-align:middle} /*图片的边框为0,图片在当前行内的垂直位置 */
+
+input,select,textarea,button {vertical-align:middle}  /* 重置表单控件垂直居中*/
+button {border:0 none;background-color:transparent;cursor:pointer}  /* 重置表单button按钮效果 */
+textarea{resize:none;overflow:auto;}
+a {text-decoration:none;outline: none;}  /* 重置链接a标签 */ 
+a:active, a:hover {text-decoration:none}   /* 重置链接a标签的鼠标滑动效果 */
+
+/* 页面设置 */
+/* 取消a标签点击后的虚线框 */
+a:active {star:expression(this.onFocus=this.blur());}
+/* 设置页面文字等在拖动鼠标选中情况下的背景色与文字颜色 
+::selection {color: #fff;background-color: #4C6E78;}    
+::-moz-selection {color: #fff;background-color: #4C6E78;} 
+blockquote, q {quotes: none}   重置嵌套引用的引号类型 
+blockquote:before, blockquote:after,q:before, q:after {content:'';content:none}  /* 重置嵌套引用*/
+.container {
+	padding:0;
+}
